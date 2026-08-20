@@ -1,4 +1,118 @@
-<html>
-<head></head>
-<body><h1>TESTE</h1></body>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Login</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        header,
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input,
+        button {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        #resultado {
+            display: none;
+            margin-top: 30px;
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Minha Página</h1>
+    </header>
+
+    <main>
+        <h2>Login</h2>
+
+        <form id="formLogin">
+            <label for="usuario">Usuário:</label>
+            <input
+                type="text"
+                id="usuario"
+                name="usuario"
+                required
+            >
+
+            <label for="senha">Senha:</label>
+            <input
+                type="password"
+                id="senha"
+                name="senha"
+                required
+            >
+
+            <button type="submit">Entrar</button>
+        </form>
+
+        <div id="resultado">
+            <h2>Dados informados</h2>
+
+            <p>
+                <strong>Usuário:</strong>
+                <span id="usuarioExibido"></span>
+            </p>
+
+            <p>
+                <strong>Senha:</strong>
+                <span id="senhaExibida"></span>
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Rodapé genérico</p>
+    </footer>
+
+    <script>
+        const formulario = document.getElementById("formLogin");
+        const resultado = document.getElementById("resultado");
+
+        const usuarioExibido = document.getElementById("usuarioExibido");
+        const senhaExibida = document.getElementById("senhaExibida");
+
+        formulario.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const usuario = document.getElementById("usuario").value;
+            const senha = document.getElementById("senha").value;
+
+            usuarioExibido.textContent = usuario;
+            senhaExibida.textContent = senha;
+
+            resultado.style.display = "block";
+        });
+    </script>
+
+</body>
 </html>
